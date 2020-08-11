@@ -24,12 +24,12 @@ Week | Tasks
 1 | Reading (ND & OC)
 2 | Workshop aims & hypotheses (ND & OC)
 3 | Pilot testing w/ Cristian
-4 | 
-5 | 
-6 | 
-7 | 
-8 | 
-9 | 
-10 | 
-11 | 
-12 | 
+4 | tbd
+5 | tbd
+6 | tbd
+7 | tbd
+8 | tbd
+9 | tbd
+10 | tbd
+11 | tbd
+12 | tbd
