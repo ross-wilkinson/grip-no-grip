@@ -1,4 +1,4 @@
-function editSetupScaleXml(datDir,modDir,resDir,setDir,name,mass,ht,age,filename)
+function editSetupScaleXml(datDir,modDir,resDir,setDir,name,mass,ht,age,filename,startTime,endTime)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -17,6 +17,7 @@ Tree.ScaleTool.GenericModelMaker.ATTRIBUTE.name = name;
 % Edit ScaleTool -> ModelScaler
 Tree.ScaleTool.ModelScaler.ATTRIBUTE.name = name;
 Tree.ScaleTool.ModelScaler.marker_file = [datDir '/' filename '.trc'];
+Tree.ScaleTool.ModelScaler.time_range = [startTime endTime];
 
 % ScaleTool -> MarkerPlacer
 Tree.ScaleTool.MarkerPlacer.ATTRIBUTE.name = name;
@@ -27,6 +28,8 @@ Tree.ScaleTool.MarkerPlacer.output_motion_file = ...
     [resDir '/' filename '.mot'];
 Tree.ScaleTool.MarkerPlacer.output_marker_file = ...
     [resDir '/' name 'markersScaled.xml'];
+Tree.ScaleTool.MarkerPlacer.time_range = [startTime endTime];
+
 
 % Set inputs for xml_write
 rootName = 'OpenSimDocument';                                               

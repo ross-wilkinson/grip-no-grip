@@ -30,7 +30,7 @@ movrmsWin = dsp.MovingRMS(nSamples); %
 emgRms = movrmsWin(emgFilt);
 
 analogLabels = categorical(data.(filename).Analog.Labels);
-channelNames = cellstr(analogLabels);
+channelNames = cellstr(analogLabels(emgChannelNo));
 
 end
 

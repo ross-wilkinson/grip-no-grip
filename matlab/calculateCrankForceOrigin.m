@@ -1,23 +1,56 @@
-function [Pxyz_r, Pxyz_l] = calculateCrankForceOrigin(markerDataBicycle,markerLabels)
+function [Pxyz_r, Pxyz_l] = calculateCrankForceOrigin(path,filename)
 %UNTITLED Use foot markers to estimate origin of pedal force
 %   Detailed explanation goes here
 
+% Load file
+data = load([path '/' filename '.mat']);
+
+% Set marker data, marker labels, and analog labels to new variables.
+markerData = data.(filename).Trajectories.Labeled.Data(:,1:3,:);
+markerLabels = categorical(data.(filename).Trajectories.Labeled.Labels);
+
+% Permute marker data for writing .trc file. One marker per page.
+markerData = permute(markerData,[2 3 1]);
+
+markerData(isnan(markerData))=0;
+
 % Set marker variables
-rtoe = markerDataBicycle(:,:,markerLabels == 'rtoe');
-rmt5 = markerDataBicycle(:,:,markerLabels == 'rmt5');
-rcal = markerDataBicycle(:,:,markerLabels == 'rcal');
-ltoe = markerDataBicycle(:,:,markerLabels == 'ltoe');
-lmt5 = markerDataBicycle(:,:,markerLabels == 'lmt5');
-lcal = markerDataBicycle(:,:,markerLabels == 'lcal');
+rtoe = markerData(:,:,markerLabels == 'rtoe');
+rmt5 = markerData(:,:,markerLabels == 'rmt5');
+rcal = markerData(:,:,markerLabels == 'rcal');
+ltoe = markerData(:,:,markerLabels == 'ltoe');
+lmt5 = markerData(:,:,markerLabels == 'lmt5');
+lcal = markerData(:,:,markerLabels == 'lcal');
 
 % Pre-allocate output variable size
 [Pxyz_r, Pxyz_l] = deal(NaN(3,length(rtoe)));
     
 for iData = 1:length(rtoe)
     % Get distance from calc to toe markers on each foot.
-    dispCalcToToeRight = rtoe(:,iData) - rcal(:,iData);
-    dispCalcToToeLeft = ltoe(:,iData) - lcal(:,iData);
+    try 
+        dispCalcToToeLeft = ltoe(:,iData) - lcal(:,iData);
+        zl = 1;
+    catch
+        warning('Missing left foot marker data.')
+        zl = 0;
+    end
     
+    try
+        dispCalcToToeRight = rtoe(:,iData) - rcal(:,iData);
+        zr = 1;
+    catch
+        warning('Missing right foot marker data.')
+        zr = 0;
+    end
+    
+    if zl == 1 && zr == 0
+        dispCalcToToeLeft = ltoe(:,iData) - lcal(:,iData);
+        dispCalcToToeRight = dispCalcToToeLeft;
+    elseif zl == 0 && zr == 1
+        dispCalcToToeRight = rtoe(:,iData) - rcal(:,iData);
+        dispCalcToToeLeft = dispCalcToToeRight;
+    end       
+        
     % Set virtual marker position as toe marker minus 1/3 of the distance to calc 
     % marker.
     virtualMarkerRight = rtoe(:,iData) - dispCalcToToeRight * (1/3);

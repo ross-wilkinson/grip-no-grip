@@ -12,7 +12,7 @@ Tree.InverseKinematicsTool.ATTRIBUTE.name = filename;
 Tree.InverseKinematicsTool.results_directory = resDir;  
 
 % Edit -> model file
-Tree.InverseKinematicsTool.model_file = [resDir '/' name 'modelScaled.osim'];      
+Tree.InverseKinematicsTool.model_file = [resDir '/' name 'modelScaledWithBicycle.osim'];      
 
 % Edit -> marker file
 Tree.InverseKinematicsTool.marker_file = [datDir '/' filename '.trc'];

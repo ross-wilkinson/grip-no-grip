@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSimDocument Version="40000">
+   <ScaleTool name="s05">
+      <mass>69</mass>
+      <height>1.83</height>
+      <age>24</age>
+      <GenericModelMaker name="s05">
+         <model_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/model/cyclist.osim</model_file>
+         <marker_set_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/model/markerSet.xml</marker_set_file>
+      </GenericModelMaker>
+      <ModelScaler name="s05">
+         <scaling_order>measurements</scaling_order>
+         <MeasurementSet file="/Users/rosswilkinson/Google Drive/projects/grip-no-grip/model/measurementSet.xml"/>
+         <marker_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/data/s05c0001.trc</marker_file>
+         <time_range>[0 2]</time_range>
+         <preserve_mass_distribution>true</preserve_mass_distribution>
+      </ModelScaler>
+      <MarkerPlacer name="s05">
+         <IKTaskSet file="/Users/rosswilkinson/Google Drive/projects/grip-no-grip/model/tasksScale.xml"/>
+         <marker_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/data/s05c0001.trc</marker_file>
+         <time_range>[0 2]</time_range>
+         <output_model_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/results/s05modelScaled.osim</output_model_file>
+         <output_motion_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/results/s05c0001.mot</output_motion_file>
+         <output_marker_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/results/s05markersScaled.xml</output_marker_file>
+         <max_marker_movement>-1</max_marker_movement>
+      </MarkerPlacer>
+   </ScaleTool>
+</OpenSimDocument>

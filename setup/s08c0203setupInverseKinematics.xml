@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSimDocument Version="40000">
+   <InverseKinematicsTool name="s08c0203">
+      <results_directory>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/results</results_directory>
+      <model_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/results/s08modelScaledWithBicycle.osim</model_file>
+      <constraint_weight>infinity</constraint_weight>
+      <accuracy>1e-05</accuracy>
+      <IKTaskSet file="/Users/rosswilkinson/Google Drive/projects/grip-no-grip/model/tasksInverseKinematics.xml"/>
+      <marker_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/data/s08c0203.trc</marker_file>
+      <time_range>[0.005 10]</time_range>
+      <report_errors>true</report_errors>
+      <output_motion_file>/Users/rosswilkinson/Google Drive/projects/grip-no-grip/results/s08c0203inverseKinematics.mot</output_motion_file>
+      <report_marker_locations>true</report_marker_locations>
+   </InverseKinematicsTool>
+</OpenSimDocument>
