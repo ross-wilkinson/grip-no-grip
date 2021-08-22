@@ -12,9 +12,9 @@ subjectList = fieldnames(S.time);
 measure1 = 'comTE';
 measure2 = '';
 yLabel = '\Delta whole-body mechanical energy (J)';
-yLim = [-15 15];
+yLim = [-20 20];
 
-for iSub = 1%:10
+for iSub = 1:11
     t1 = S.(measure1).(subjectList{iSub}).c0101 - mean(S.(measure1).(subjectList{iSub}).c0101);  
     t2 = S.(measure1).(subjectList{iSub}).c0102 - mean(S.(measure1).(subjectList{iSub}).c0102);
     t3 = S.(measure1).(subjectList{iSub}).c0103 - mean(S.(measure1).(subjectList{iSub}).c0103);
@@ -66,7 +66,7 @@ title('Seated, Grip')
 %plot seated, no grip
 subplot(412)
 x = 0:360;
-plot(x,a1)
+plot(x,a2)
 hold on
 line([180 180],yLim,'LineStyle',':')
 
@@ -122,5 +122,4 @@ title('Non-Seated, No Grip')
 
 %% Export figure
 cd(docDir)
-export_fig(gcf,['fig_' measure1 '_color'],'-eps','-cmyk','-r1200')
-
+% export_fig(gcf,['fig_' measure1 '_color'],'-eps','-cmyk','-r1200')

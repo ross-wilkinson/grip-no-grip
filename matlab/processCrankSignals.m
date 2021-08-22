@@ -1,4 +1,4 @@
-function [rTan_,rRad_,lTan_,lRad_] = processCrankSignals(path,filename,crankLength,downsample)
+function [rTan_,rRad_,lTan_,lRad_] = processCrankSignals(path,filename,crankLength)
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -8,19 +8,14 @@ data = load([path '/' filename '.mat']);
 %% Process crank force signals
 % Set analog signals
 analogLabels = categorical(data.(filename).Analog.Labels);
-if downsample
-    samplingFactor = data.(filename).Analog.SamplingFactor;
-else
-    samplingFactor = 1;
-end
+samplingFactor = data.(filename).Analog.SamplingFactor;
 
 rTrq = data.(filename).Analog.Data(analogLabels == 'RTan',:);
 
-try
-    rRad = data.(filename).Analog.Data(analogLabels == 'RRad',:);
-catch
+if isempty(data.(filename).Analog.Data(analogLabels == 'RRad',:))
     rRad = data.(filename).Analog.Data(analogLabels == 'RRadial',:);
 end
+
 lTrq = data.(filename).Analog.Data(analogLabels == 'LTan',:);
 lRad = data.(filename).Analog.Data(analogLabels == 'LRad',:);
 
