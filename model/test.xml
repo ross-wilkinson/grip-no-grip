@@ -1,0 +1,27 @@
+<OpenSimDocument Version="40000">
+   <ScaleTool name="default">
+      <mass>-1</mass>
+      <height>-1</height>
+      <age>-1</age>
+      <GenericModelMaker name="defualt">
+         <model_file>Unassigned</model_file>
+         <marker_set_file>Unassigned</marker_set_file>
+      </GenericModelMaker>
+      <ModelScaler name="default">
+         <scaling_order>measurements</scaling_order>
+         <MeasurementSet file="Unassigned" />
+         <marker_file>Unassigned</marker_file>
+         <time_range>-1 -1</time_range>
+         <preserve_mass_distribution>true</preserve_mass_distribution>
+      </ModelScaler>
+      <MarkerPlacer name="default">
+         <IKTaskSet file="Unassigned" />
+         <marker_file>Unassigned</marker_file>
+         <time_range>-1 -1</time_range>
+         <output_model_file>Unassigned</output_model_file>
+         <output_motion_file>Unassigned</output_motion_file>
+         <output_marker_file>Unassigned</output_marker_file>
+         <max_marker_movement>-1</max_marker_movement>
+      </MarkerPlacer>
+   </ScaleTool>
+</OpenSimDocument>

@@ -19,7 +19,7 @@ end
 lTrq = data.(filename).Analog.Data(analogLabels == 'LTan',:);
 lRad = data.(filename).Analog.Data(analogLabels == 'LRad',:);
 
-% Downsample if requested
+% Downsample if required
 rTrq = rTrq(1:samplingFactor:end);
 rRad = rRad(1:samplingFactor:end);
 lTrq = lTrq(1:samplingFactor:end);
